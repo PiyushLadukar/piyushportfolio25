@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piyush | Software Developer</title>
+  <meta name="description" content="Piyush - Software Developer skilled in Java, Spring Boot, Android, and IoT">
+  <!-- Google Fonts CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+
+        #spiderWeb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+ }
+
+/* ============================================
+   CYBERPUNK SPIDER-MAN PORTFOLIO
+   Pure HTML/CSS/JS - No frameworks
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0a0e1a;
+  --bg-gradient: linear-gradient(135deg, #0a0e1a 0%, #1a0a1a 50%, #0a1a2a 100%);
+  --primary: #dc2626;
+  --primary-glow: rgba(220, 38, 38, 0.6);
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.6);
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --surface: rgba(30, 41, 59, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============================================
+   ANIMATED BACKGROUND
+   ============================================ */
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: -3;
+}
+
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(139, 69, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -4;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Web Lines */
+.web-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.web-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.15), transparent);
+  height: 1px;
+  transform-origin: left center;
+}
+
+.web-line-1 {
+  top: 15%;
+  left: 0;
+  width: 40%;
+  animation: web-swing 8s ease-in-out infinite;
+}
+
+.web-line-2 {
+  top: 35%;
+  right: 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
+  animation: web-swing 10s ease-in-out infinite reverse;
+}
+
+.web-line-3 {
+  bottom: 25%;
+  left: 0;
+  width: 45%;
+  animation: web-swing 12s ease-in-out infinite;
+}
+
+.web-line-4 {
+  bottom: 45%;
+  right: 0;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
+  animation: web-swing 9s ease-in-out infinite reverse;
+}
+
+@keyframes web-swing {
+  0%, 100% { transform: rotate(-2deg) translateY(0); opacity: 0.5; }
+  50% { transform: rotate(2deg) translateY(10px); opacity: 1; }
+}
+
+/* Spider Nodes */
+.spider-nodes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.spider-node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow);
+  animation: node-pulse 3s ease-in-out infinite;
+}
+
+.node-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.node-2 { top: 30%; right: 8%; animation-delay: 0.5s; background: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+.node-3 { top: 60%; left: 3%; animation-delay: 1s; }
+.node-4 { bottom: 20%; right: 5%; animation-delay: 1.5s; background: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+.node-5 { bottom: 40%; left: 8%; animation-delay: 2s; }
+
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* HUD Circles */
+.hud-circles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hud-circle {
+  position: absolute;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 50%;
+  animation: hud-rotate 20s linear infinite;
+}
+
+.hud-circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  border-style: dashed;
+}
+
+.hud-circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 10%;
+  left: -50px;
+  border-color: rgba(59, 130, 246, 0.2);
+  animation-direction: reverse;
+}
+
+.hud-circle-3 {
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: rgba(255, 255, 255, 0.05);
+  animation-duration: 30s;
+}
+
+@keyframes hud-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   SCROLL PROGRESS
+   ============================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  z-index: 9999;
+  width: 0%;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* ============================================
+   CONTAINER & SECTIONS
+   ============================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-top: 12px;
+  text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--accent-glow);
+}
+
+.spider-icon {
+  color: var(--accent);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.protocol-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-top: 24px;
+  text-shadow: 0 0 30px var(--primary-glow);
+}
+
+.name-glitch {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.name-glitch:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); filter: hue-rotate(90deg); }
+  40% { transform: translate(3px, -3px); filter: hue-rotate(180deg); }
+  60% { transform: translate(-3px, -3px); filter: hue-rotate(270deg); }
+  80% { transform: translate(3px, 3px); filter: hue-rotate(360deg); }
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+/* Terminal */
+.terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.terminal-prompt {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.terminal-const {
+  color: rgba(220, 38, 38, 0.8);
+  font-size: 14px;
+}
+
+.terminal-quote {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.typing-text {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background: var(--accent);
+  margin-left: 2px;
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.location svg {
+  color: var(--primary);
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #b91c1c);
+  color: white;
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--primary-glow), 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+  background: var(--glass-bg);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 25px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--primary-glow); }
+  50% { box-shadow: 0 0 35px var(--primary-glow), 0 0 50px var(--primary-glow); }
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
+  transform: translateY(-3px);
+}
+
+/* Hero Image */
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.image-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.image-container {
+  position: relative;
+  padding: 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 0 0 1px var(--primary-glow),
+    0 0 40px var(--primary-glow),
+    0 0 0 1px var(--accent-glow),
+    0 0 60px var(--accent-glow);
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.web-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at center, transparent 40%, rgba(255,255,255,0.05) 40.5%, transparent 41%);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.profile-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(220, 38, 38, 0.5);
+}
+
+/* Default profile placeholder (SVG) */
+.profile-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  font-weight: 700;
+  color: white;
+  border: 3px solid rgba(220, 38, 38, 0.5);
+}
+
+.profile-ring {
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  border-radius: 50%;
+  animation: ring-rotate 8s linear infinite;
+}
+
+.profile-ring-outer {
+  position: absolute;
+  inset: -20px;
+  border: 1px dashed rgba(220, 38, 38, 0.3);
+  border-radius: 50%;
+  animation: ring-rotate 12s linear infinite reverse;
+}
+
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.image-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg-dark));
+  pointer-events: none;
+}
+
+/* ============================================
+   GLASS PANELS
+   ============================================ */
+
+.glass-panel {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    0 0 0 1px var(--primary-glow),
+    0 0 30px var(--primary-glow),
+    0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* HUD Corners */
+.hud-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.hud-tl {
+  top: 0;
+  left: 0;
+  border-top: 2px solid rgba(220, 38, 38, 0.5);
+  border-left: 2px solid rgba(220, 38, 38, 0.5);
+}
+
+.hud-tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid rgba(59, 130, 246, 0.5);
+  border-right: 2px solid rgba(59, 130, 246, 0.5);
+}
+
+.hud-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.5);
+  border-left: 2px solid rgba(59, 130, 246, 0.5);
+}
+
+.hud-br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid rgba(220, 38, 38, 0.5);
+  border-right: 2px solid rgba(220, 38, 38, 0.5);
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.about-text strong {
+  color: var(--accent);
+}
+
+/* ============================================
+   TIMELINE (Experience)
+   ============================================ */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeline-item .glass-panel {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline-item .glass-panel::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 28px;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.timeline-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.timeline-company {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.timeline-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.timeline-desc {
+  margin-top: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tag {
+  padding: 4px 12px;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--primary);
+}
+
+/* ============================================
+   PROJECTS GRID
+   ============================================ */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card .glass-panel {
+  height: 100%;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.project-tech {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.project-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   SKILLS GRID
+   ============================================ */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.skill-panel h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(220, 38, 38, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(220, 38, 38, 0.2));
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   EDUCATION & AWARDS
+   ============================================ */
+
+.education-card,
+.award-card {
+  max-width: 600px;
+}
+
+.education-card h3,
+.award-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.edu-school {
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.edu-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.edu-cgpa {
+  margin-top: 12px;
+  color: var(--text-muted);
+}
+
+.edu-cgpa strong {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.award-desc {
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+
+/* MODERN LEFT RIGHT TIMELINE */
+
+.timeline-modern {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 60px;
+}
+
+/* Center line */
+.timeline-modern::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, red, cyan);
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px red;
+}
+
+/* Cards */
+.timeline-modern-item {
+  width: 45%;
+  position: relative;
+}
+
+.timeline-modern-item.left {
+  align-self: flex-start;
+}
+
+.timeline-modern-item.right {
+  align-self: flex-end;
+}
+
+/* Spider glowing nodes */
+.timeline-modern-item::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  background: red;
+  border-radius: 50%;
+  box-shadow: 0 0 25px red;
+  animation: pulseNode 2s infinite;
+}
+
+.timeline-modern-item.left::before {
+  right: -40px;
+}
+
+.timeline-modern-item.right::before {
+  left: -40px;
+}
+
+/* Pulse animation */
+@keyframes pulseNode {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.6); }
+}
+
+/* Mobile fix */
+@media (max-width: 900px) {
+  .timeline-modern::before {
+    left: 10px;
+  }
+
+  .timeline-modern-item {
+    width: 100%;
+    padding-left: 40px;
+  }
+
+  .timeline-modern-item.left,
+  .timeline-modern-item.right {
+    align-self: flex-start;
+  }
+
+  .timeline-modern-item::before {
+    left: -8px;
+  }
+}
+.timeline-modern-item.left.reveal {
+  transform: translateX(-80px) scale(0.9);
+}
+.timeline-modern-item.right.reveal {
+  transform: translateX(80px) scale(0.9);
+}
+.timeline-modern-item.visible {
+  transform: translateX(0) scale(1);
+}
+
+
+/* ============================================
+   CONTACT GRID
+   ============================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  text-decoration: none;
+}
+
+.contact-card .glass-panel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.contact-card .glass-panel:hover {
+  transform: translateY(-4px);
+}
+
+.contact-card svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-card span {
+  font-size: 0.90rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer strong {
+  color: var(--primary);
+}
+
+/* ============================================
+   REVEAL ANIMATIONS (POP-UP)
+   ============================================ */
+
+.reveal {
+  opacity: 1;
+  transform: translateY(30px) scale(0.9);
+  transition: opacity 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delays */
+.reveal:nth-child(1) { transition-delay: 0s; }
+.reveal:nth-child(2) { transition-delay: 0.05s; }
+.reveal:nth-child(3) { transition-delay: 0.1s; }
+.reveal:nth-child(4) { transition-delay: 0.15s; }
+.reveal:nth-child(5) { transition-delay: 0.2s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 80px;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .terminal {
+    flex-wrap: wrap;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .profile-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}
+  </style>
+  
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-gradient"></div>
+  <canvas id="particles"></canvas>
+  <canvas id="spiderWeb"></canvas>
+
+  <div class="web-lines">
+    <div class="web-line web-line-1"></div>
+    <div class="web-line web-line-2"></div>
+    <div class="web-line web-line-3"></div>
+    <div class="web-line web-line-4"></div>
+  </div>
+  <div class="spider-nodes">
+    <div class="spider-node node-1"></div>
+    <div class="spider-node node-2"></div>
+    <div class="spider-node node-3"></div>
+    <div class="spider-node node-4"></div>
+    <div class="spider-node node-5"></div>
+  </div>
+  <div class="hud-circles">
+    <div class="hud-circle hud-circle-1"></div>
+    <div class="hud-circle hud-circle-2"></div>
+    <div class="hud-circle hud-circle-3"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="protocol-badge reveal">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            SPIDER-MAN PROTOCOL
+          </div>
+          
+          <h1 class="hero-title reveal">
+            Hi, I'm <span class="name-glitch" data-text="Piyush">Piyush</span>
+            <br>
+            <span class="accent-text">Software Developer</span>
+          </h1>
+
+          <!-- Hacker Terminal -->
+          <div class="terminal reveal">
+            <span class="terminal-prompt">❯</span>
+            <span class="terminal-const">const role =</span>
+            <span class="terminal-quote">"</span>
+            <span class="typing-text" id="typing-text"></span>
+            <span class="terminal-quote">"</span>
+            <span class="cursor"></span>
+          </div>
+
+          <p class="location reveal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Nagpur, India
+          </p>
+
+          <div class="hero-buttons reveal">
+            <a href="#projects" class="btn btn-primary pulse-glow">
+              <svg class="spider-icon" viewBox="0 0 24 24" width="18" height="18">
+                <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+              </svg>
+              View Projects
+            </a>
+            <a href="PIYUSHLADUKAR.pdf" download="Piyush_Ladukar_Resume.pdf" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">Contact</a>
+          </div>
+
+          <div class="social-links reveal">
+            <a href="https://github.com/PiyushLadukar" target="_blank" class="social-btn" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/piyush-ladukar" target="_blank" class="social-btn" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="mailto:work.piyushladukar@gmail.com" class="social-btn" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </a>
+            <a href="tel:+918668720984" class="social-btn" aria-label="Phone">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image reveal">
+          <div class="image-glow"></div>
+          <div class="image-container" id="tilt-container">
+            <div class="web-overlay"></div>
+            <div class="profile-wrapper">
+        
+              <img src="profile.jpg" class="profile-img" alt="Piyush Profile Photo">
+              <div class="profile-ring"></div>
+              <div class="profile-ring-outer"></div>
+            </div>
+            <p class="image-caption">
+              <svg class="spider-icon" viewBox="0 0 24 24" width="16" height="16">
+                <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+              </svg>
+              Web Slinger Mode Active
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-fade"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            ORIGIN STORY
+          </span>
+          <h2 class="section-title">About Me</h2>
+        </header>
+        <div class="glass-panel reveal">
+          <div class="hud-corner hud-tl"></div>
+          <div class="hud-corner hud-tr"></div>
+          <div class="hud-corner hud-bl"></div>
+          <div class="hud-corner hud-br"></div>
+          <p class="about-text">
+            Software Developer skilled in <strong>Java, Spring Boot, and Android</strong> with experience building secure JWT-based finance platforms, IoT automation systems, and API-driven applications. Passionate about scalable backend architecture, high-performance code, and delivering meaningful product impact.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            MISSION LOG
+          </span>
+          <h2 class="section-title">Experience</h2>
+        </header>
+        <div class="timeline-modern">
+          <div class="timeline-modern-item left reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <div class="timeline-header">
+                <h3>Backend Developer</h3>
+                <span class="timeline-company">Elixir Strategic Management Pvt. Ltd</span>
+              </div>
+              <p class="timeline-meta">2025 | Nagpur</p>
+              <p class="timeline-desc">Delivered 12+ REST APIs with Spring Boot + MySQL and JWT + RBAC security, improving latency by ~28% and reducing bugs by 32%.</p>
+              <div class="timeline-tags">
+                <span class="tag">Spring Boot</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">JWT</span>
+                <span class="tag">REST APIs</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-modern-item right reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <div class="timeline-header">
+                <h3>Android Development Intern</h3>
+                <span class="timeline-company">CodSoft</span>
+              </div>
+              <p class="timeline-meta">2025 | Remote</p>
+              <p class="timeline-desc">Built 5 Android apps with Kotlin/Java + API integrations, improving UI engagement & crash stability by ~17%.</p>
+              <div class="timeline-tags">
+                <span class="tag">Kotlin</span>
+                <span class="tag">Java</span>
+                <span class="tag">Android</span>
+                <span class="tag">APIs</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-modern-item left reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <div class="timeline-header">
+                <h3>Data Analyst Intern</h3>
+                <span class="timeline-company">Forge</span>
+              </div>
+              <p class="timeline-meta">2025 | Remote</p>
+              <p class="timeline-desc">Built 4 Power BI dashboards and automated refresh pipelines, saving ~5 hrs/week and increasing forecast accuracy.</p>
+              <div class="timeline-tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">Automation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            WEB ARCHIVES
+          </span>
+          <h2 class="section-title">Projects</h2>
+        </header>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3 class="project-title">Bank Management System</h3>
+              <p class="project-tech">Spring Boot • JWT • RBAC • MySQL</p>
+              <p class="project-desc">Designed a secure multi-role banking backend; encrypted credentials; reduced unauthorized access risk by 100%.</p>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3 class="project-title">IoT Attendance System</h3>
+              <p class="project-tech">RFID • Arduino • Google Sheets • Android</p>
+              <p class="project-desc">Logged 2,800+ student entries with automated cloud sheet sync; improved record accuracy by 94%.</p>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3 class="project-title">Weather Forecast App</h3>
+              <p class="project-tech">Java • REST API • Material UI</p>
+              <p class="project-desc">7-screen weather prediction app with real-time temperature & AQI using API integration.</p>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3 class="project-title">Other Projects</h3>
+              <p class="project-tech">Various Technologies</p>
+              <p class="project-desc">ChemFlow • Mini Radar System • WhatsApp E-Commerce • Gamified Finance Website</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            SPIDER ARSENAL
+          </span>
+          <h2 class="section-title">Skills</h2>
+        </header>
+        <div class="skills-grid">
+          <div class="skill-panel reveal">
+            <div class="glass-panel floating">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3>Technical Skills</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Spring Boot</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">JWT</span>
+                <span class="skill-tag">JPA/Hibernate</span>
+                <span class="skill-tag">DSA</span>
+                <span class="skill-tag">OOP</span>
+                <span class="skill-tag">SDLC</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-panel reveal">
+            <div class="glass-panel floating">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3>Tools & Platforms</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Android Studio</span>
+                <span class="skill-tag">Kotlin</span>
+                <span class="skill-tag">Retrofit</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">IntelliJ</span>
+                <span class="skill-tag">VS Code</span>
+                <span class="skill-tag">MySQL Workbench</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-panel reveal">
+            <div class="glass-panel floating">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <h3>Web & IoT</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Arduino</span>
+                <span class="skill-tag">RFID</span>
+                <span class="skill-tag">Sensors</span>
+                <span class="skill-tag">Microcontrollers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            TRAINING GROUNDS
+          </span>
+          <h2 class="section-title">Education</h2>
+        </header>
+        <div class="education-card reveal">
+          <div class="glass-panel">
+            <div class="hud-corner hud-tl"></div>
+            <div class="hud-corner hud-tr"></div>
+            <div class="hud-corner hud-bl"></div>
+            <div class="hud-corner hud-br"></div>
+            <h3>B.Tech in Computer Science</h3>
+            <p class="edu-school">Jhulelal Institute of Technology</p>
+            <p class="edu-meta">2023 – Present | Nagpur</p>
+            <p class="edu-cgpa">CGPA: <strong>8.4</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section" id="awards">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            BATTLE VICTORIES
+          </span>
+          <h2 class="section-title">Awards</h2>
+        </header>
+        <div class="award-card reveal">
+          <div class="glass-panel">
+            <div class="hud-corner hud-tl"></div>
+            <div class="hud-corner hud-tr"></div>
+            <div class="hud-corner hud-bl"></div>
+            <div class="hud-corner hud-br"></div>
+            <div class="award-icon">🥇🥇</div>
+            <h3>2× National Gold Medals</h3>
+            <p class="award-desc">National Karate Championship (2019), representing Maharashtra among 250+ state-level athletes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-kicker">
+            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
+              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
+            </svg>
+            SPIDER SIGNAL
+          </span>
+          <h2 class="section-title">Get In Touch</h2>
+        </header>
+        <div class="contact-grid">
+          <a href="mailto:work.piyushladukar@gmail.com" class="contact-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>work.piyushladukar@gmail.com</span>
+            </div>
+          </a>
+          <a href="tel:+918668720984" class="contact-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+91-8668720984</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/piyush-ladukar" target="_blank" class="contact-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn Profile</span>
+            </div>
+          </a>
+          <a href="https://github.com/PiyushLadukar" target="_blank" class="contact-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div>
+              <div class="hud-corner hud-tr"></div>
+              <div class="hud-corner hud-bl"></div>
+              <div class="hud-corner hud-br"></div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <span>GitHub Profile</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>Built with 🕷️ by <strong>Piyush</strong> — Spider-Man Protocol v2.0</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+
+        // ============================================
+// SPIDER WEB FOLLOW CURSOR EFFECT 🕸️
+// ============================================
+document.addEventListener("DOMContentLoaded", () => {
+
+const webCanvas = document.getElementById("spiderWeb");
+if (!webCanvas) return;
+const webCtx = webCanvas.getContext("2d");
+
+
+function resizeWeb() {
+  webCanvas.width = window.innerWidth;
+  webCanvas.height = window.innerHeight;
+}
+resizeWeb();
+window.addEventListener("resize", resizeWeb);
+
+let mouse = { x: 0, y: 0 };
+let webPoints = [];
+
+document.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+
+  webPoints.push({ x: mouse.x, y: mouse.y });
+  if (webPoints.length > 20) webPoints.shift();
+});
+
+function drawSpiderWeb() {
+  webCtx.clearRect(0, 0, webCanvas.width, webCanvas.height);
+
+  // glowing web
+  webCtx.strokeStyle = "rgba(0, 200, 255, 0.6)";   // light blue web
+webCtx.shadowColor = "rgba(0, 200, 255, 1)";     // glow color
+webCtx.shadowBlur = 12;
+
+webCtx.shadowBlur = 10;
+  webCtx.lineWidth = 1;
+
+  for (let i = 0; i < webPoints.length - 1; i++) {
+    webCtx.beginPath();
+    webCtx.moveTo(webPoints[i].x, webPoints[i].y);
+    webCtx.lineTo(webPoints[i + 1].x, webPoints[i + 1].y);
+    webCtx.stroke();
+  }
+
+  // Spider web nodes
+  webPoints.forEach(p => {
+    webCtx.beginPath();
+    webCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    webCtx.fillStyle = "rgba(220,38,38,0.8)";
+    webCtx.fill();
+  });
+
+  requestAnimationFrame(drawSpiderWeb);
+}
+
+drawSpiderWeb();
+});
+
+// ============================================
+// CYBERPUNK SPIDER-MAN PORTFOLIO - JAVASCRIPT
+// Pure vanilla JS - No frameworks
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  initParticles();
+  initTypingAnimation();
+  initScrollReveal();
+  initScrollProgress();
+  init3DTilt();
+  initParallax();
+});
+
+// ============================================
+// PARTICLE SYSTEM
+// ============================================
+
+function initParticles() {
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animationId;
+  
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    createParticles();
+  }
+  
+  function createParticles() {
+    particles = [];
+const count = 80;
+    
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.5 + 0.2,
+        color: Math.random() > 0.5 ? '220, 38, 38' : '59, 130, 246'
+      });
+    }
+  }
+  
+  function drawCircuitLines() {
+    ctx.strokeStyle = 'rgba(220, 38, 38, 0.06)';
+    ctx.lineWidth = 1;
+    
+    const patterns = [
+      { x1: 0, y1: canvas.height * 0.25, x2: canvas.width * 0.15, y2: canvas.height * 0.25 },
+      { x1: canvas.width * 0.15, y1: canvas.height * 0.25, x2: canvas.width * 0.15, y2: canvas.height * 0.45 },
+      { x1: canvas.width * 0.85, y1: canvas.height * 0.15, x2: canvas.width, y2: canvas.height * 0.15 },
+      { x1: canvas.width * 0.85, y1: canvas.height * 0.15, x2: canvas.width * 0.85, y2: canvas.height * 0.35 },
+      { x1: 0, y1: canvas.height * 0.75, x2: canvas.width * 0.1, y2: canvas.height * 0.75 },
+      { x1: canvas.width * 0.9, y1: canvas.height * 0.85, x2: canvas.width, y2: canvas.height * 0.85 },
+    ];
+    
+    patterns.forEach(p => {
+      ctx.beginPath();
+      ctx.moveTo(p.x1, p.y1);
+      ctx.lineTo(p.x2, p.y2);
+      ctx.stroke();
+      
+      // Node dots
+      ctx.fillStyle = 'rgba(220, 38, 38, 0.2)';
+      ctx.beginPath();
+      ctx.arc(p.x2, p.y2, 3, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    drawCircuitLines();
+    
+    // Draw particles
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      
+      // Wrap around
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+      
+      // Main particle
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
+      ctx.fill();
+      
+      // Glow
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color}, ${p.opacity * 0.2})`;
+      ctx.fill();
+    });
+    
+    // Draw connections
+    particles.forEach((p1, i) => {
+      particles.slice(i + 1).forEach(p2 => {
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - dist / 100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      });
+    });
+    
+    animationId = requestAnimationFrame(animate);
+  }
+  
+  resize();
+  animate();
+  
+  window.addEventListener('resize', resize);
+}
+
+// ============================================
+// TYPING ANIMATION
+// ============================================
+
+function initTypingAnimation() {
+  const element = document.getElementById('typing-text');
+  if (!element) return;
+  
+  const words = ['Backend Engineer', 'Android Developer', 'IoT Innovator', 'AI Explorer'];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  
+  function type() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+      charIndex--;
+      element.textContent = currentWord.substring(0, charIndex);
+      
+      if (charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 300);
+        return;
+      }
+      setTimeout(type, 40);
+    } else {
+      charIndex++;
+      element.textContent = currentWord.substring(0, charIndex);
+      
+      if (charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 1500);
+        return;
+      }
+      setTimeout(type, 80);
+    }
+  }
+  
+  type();
+}
+
+// ============================================
+// SCROLL REVEAL (POP-UP ANIMATION)
+// ============================================
+
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  reveals.forEach(el => observer.observe(el));
+}
+
+// ============================================
+// SCROLL PROGRESS BAR
+// ============================================
+
+function initScrollProgress() {
+  const progressBar = document.querySelector('.scroll-progress');
+  if (!progressBar) return;
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + '%';
+  });
+}
+
+// ============================================
+// 3D TILT EFFECT
+// ============================================
+
+function init3DTilt() {
+  const container = document.getElementById('tilt-container');
+  if (!container) return;
+  
+  // Check for reduced motion preference
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    
+    const rotateX = -y * 15;
+    const rotateY = x * 15;
+    
+    container.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+  
+  container.addEventListener('mouseleave', () => {
+    container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  });
+}
+
+// ============================================
+// PARALLAX EFFECT
+// ============================================
+
+function initParallax() {
+  const nodes = document.querySelectorAll('.spider-node');
+  const circles = document.querySelectorAll('.hud-circle');
+  
+  // Check for reduced motion preference
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    
+    nodes.forEach((node, i) => {
+      const speed = 0.05 + (i * 0.02);
+      node.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+    
+    circles.forEach((circle, i) => {
+      const speed = 0.02 + (i * 0.01);
+      const direction = i % 2 === 0 ? 1 : -1;
+      circle.style.transform = `translateY(${scrollY * speed * direction}px) rotate(${scrollY * 0.02}deg)`;
+    });
+  });
+}
+
+// ============================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+  </script>
+</body>
+</html>
