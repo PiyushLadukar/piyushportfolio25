@@ -1,526 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta name="google-site-verification" content="f_b9M2TqcPFIx27ed6KcpWYqOtJXmVSLrvb0KEMN4pw" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piyush | Software Developer</title>
   <meta name="description" content="Piyush - Software Developer skilled in Java, Spring Boot, Android, and IoT">
-  <!-- Favicon -->
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-  <!-- Google Fonts CDN -->
+  <link rel="icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    @import url('style.css');
-    </style>
-  <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Bebas+Neue&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Animated Background -->
-  <div class="bg-grid"></div>
-  <div class="bg-gradient"></div>
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">PL</div>
+      <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
+      <div class="loader-label">INITIALIZING<span class="loader-dots"></span></div>
+    </div>
+  </div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise-overlay"></div>
+
+  <canvas id="webgl-canvas"></canvas>
   <canvas id="particles"></canvas>
   <canvas id="spiderWeb"></canvas>
 
-  <div class="web-lines">
-    <div class="web-line web-line-1"></div>
-    <div class="web-line web-line-2"></div>
-    <div class="web-line web-line-3"></div>
-    <div class="web-line web-line-4"></div>
-  </div>
-  <div class="spider-nodes">
-    <div class="spider-node node-1"></div>
-    <div class="spider-node node-2"></div>
-    <div class="spider-node node-3"></div>
-    <div class="spider-node node-4"></div>
-    <div class="spider-node node-5"></div>
-  </div>
-  <div class="hud-circles">
-    <div class="hud-circle hud-circle-1"></div>
-    <div class="hud-circle hud-circle-2"></div>
-    <div class="hud-circle hud-circle-3"></div>
-  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Scroll Progress -->
-  <div class="scroll-progress"></div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo"><span class="logo-bracket">[</span>PL<span class="logo-bracket">]</span></div>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-status"><span class="status-dot"></span>Open to work</div>
+  </nav>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
+
+    <!-- HERO -->
     <section class="hero" id="hero">
+      <div class="hero-bg-text" aria-hidden="true">PIYUSH</div>
       <div class="hero-content">
         <div class="hero-text">
-          <div class="protocol-badge reveal">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="16" height="16">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            Engineering with intent.
-          </div>
-          
+          <div class="protocol-badge reveal"><span class="badge-dot"></span>Engineering with intent.</div>
           <h1 class="hero-title reveal">
-            Hi, I'm <span class="name-glitch" data-text="Piyush">Piyush</span>
-            <br>
-            <span class="accent-text">Software Developer</span>
+            Hi, I'm <span class="name-glitch" data-text="Piyush">Piyush</span><br>
+            <span class="accent-text"><span id="typing-text"></span><span class="cursor-blink"></span></span>
           </h1>
-
-          <!-- Hacker Terminal -->
           <div class="terminal reveal">
-            <span class="terminal-prompt">❯</span>
-            <span class="terminal-const">const role =</span>
-            <span class="terminal-quote">"</span>
-            <span class="typing-text" id="typing-text"></span>
-            <span class="terminal-quote">"</span>
-            <span class="cursor"></span>
+            <div class="terminal-header">
+              <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span><span class="t-dot t-green"></span>
+              <span class="t-title">piyush@dev ~ bash</span>
+            </div>
+            <div class="terminal-body">
+              <span class="terminal-prompt">❯</span>
+              <span class="terminal-const">const role =</span>
+              <span class="terminal-quote">"</span><span id="typing-text-2"></span><span class="terminal-quote">"</span>
+              <span class="cursor"></span>
+            </div>
           </div>
-
           <p class="location reveal">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Nagpur, India
           </p>
-
           <div class="hero-buttons reveal">
-            <a href="#projects" class="btn btn-primary pulse-glow">
-              <svg class="spider-icon" viewBox="0 0 24 24" width="18" height="18">
-                <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-              </svg>
-              View Projects
+            <a href="#projects" class="btn btn-primary"><span class="btn-text">View Projects</span><span class="btn-bg"></span></a>
+            <a href="PIYUSHLADUKAR.pdf" download class="btn btn-secondary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span class="btn-text">Resume</span>
             </a>
-            <a href="PIYUSHLADUKAR.pdf" download="Piyush_Ladukar_Resume.pdf" class="btn btn-secondary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7,10 12,15 17,10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              Download Resume
-            </a>
-            <a href="#contact" class="btn btn-outline">Contact</a>
+            <a href="#contact" class="btn btn-outline"><span class="btn-text">Contact</span></a>
           </div>
-
           <div class="social-links reveal">
             <a href="https://github.com/PiyushLadukar" target="_blank" class="social-btn" aria-label="GitHub">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
             <a href="https://linkedin.com/in/piyush-ladukar" target="_blank" class="social-btn" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
             <a href="mailto:work.piyushladukar@gmail.com" class="social-btn" aria-label="Email">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </a>
             <a href="tel:+918668720984" class="social-btn" aria-label="Phone">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </a>
           </div>
         </div>
 
-        <div class="hero-image reveal">
+        <div class="hero-image reveal" id="tilt-container">
           <div class="image-glow"></div>
-          <div class="image-container" id="tilt-container">
-            <div class="web-overlay"></div>
+          <div class="image-frame">
+            <div class="frame-corner fc-tl"></div><div class="frame-corner fc-tr"></div>
+            <div class="frame-corner fc-bl"></div><div class="frame-corner fc-br"></div>
             <div class="profile-wrapper">
-        
-              <img src="profile.jpg" class="profile-img" alt="Piyush Profile Photo">
-              <div class="profile-ring"></div>
-              <div class="profile-ring-outer"></div>
+              <img src="profile.jpg" class="profile-img" alt="Piyush Ladukar">
+              <div class="profile-ring r1"></div>
+              <div class="profile-ring r2"></div>
+              <div class="profile-ring r3"></div>
             </div>
-            <p class="image-caption">
-              <svg class="spider-icon" viewBox="0 0 24 24" width="16" height="16">
-                <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-              </svg>
-              Web Slinger Mode Active
-            </p>
+            <div class="float-badge fb-1"><span class="fb-icon">☕</span><div><div class="fb-title">Tech Enthusiat</div><div class="fb-sub">Exploring Tech</div></div></div>
+            <div class="float-badge fb-2"><span class="fb-icon">📱</span><div><div class="fb-title">Exploring AI/ML</div><div class="fb-sub">curious</div></div></div>
+            <div class="float-badge fb-3"><span class="fb-icon">🥋</span><div><div class="fb-title">2× Gold</div><div class="fb-sub">National Karate Champion</div></div></div>
           </div>
+          <p class="image-caption"><span class="caption-dot"></span>Web Slinger Mode Active</p>
         </div>
       </div>
+      <div class="hero-scroll-cue"><div class="scroll-wheel-wrap"><div class="scroll-wheel"></div></div><span>Scroll</span></div>
       <div class="hero-fade"></div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            ORIGIN STORY
-          </span>
+          <span class="section-kicker">// 01 — ORIGIN STORY</span>
           <h2 class="section-title">About Me</h2>
         </header>
-        <div class="glass-panel reveal">
-          <div class="hud-corner hud-tl"></div>
-          <div class="hud-corner hud-tr"></div>
-          <div class="hud-corner hud-bl"></div>
-          <div class="hud-corner hud-br"></div>
-          <p class="about-text">
-            Software Developer skilled in <strong>Java, Spring Boot, and Android</strong> with experience building secure JWT-based finance platforms, IoT automation systems, and API-driven applications. Passionate about scalable backend architecture, high-performance code, and delivering meaningful product impact.
-          </p>
+        <div class="about-layout">
+          <div class="glass-panel reveal about-text-panel">
+            <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+            <p class="about-text">Software Developer skilled in <strong>Java, Spring Boot, and Android</strong> with experience building secure JWT-based finance platforms, IoT automation systems, and API-driven applications. Passionate about scalable backend architecture, high-performance code, and delivering meaningful product impact.</p>
+          </div>
+          <div class="about-stats reveal">
+            <div class="stat-cube"><div class="stat-num" data-count="12">0</div><div class="stat-label">APIs Delivered</div></div>
+            <div class="stat-cube"><div class="stat-num" data-count="5">0</div><div class="stat-label">Android Apps</div></div>
+            <div class="stat-cube"><div class="stat-num" data-count="84">0</div><div class="stat-label">CGPA × 10</div></div>
+            <div class="stat-cube"><div class="stat-num" data-count="2">0</div><div class="stat-label">Gold Medals</div></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            MISSION LOG
-          </span>
+          <span class="section-kicker">// 02 — MISSION LOG</span>
           <h2 class="section-title">Experience</h2>
         </header>
         <div class="timeline-modern">
+          <div class="timeline-track"></div>
           <div class="timeline-modern-item left reveal">
             <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <div class="timeline-header">
-                <h3>Backend Developer</h3>
-                <span class="timeline-company">Elixir Strategic Management Pvt. Ltd</span>
-              </div>
-              <p class="timeline-meta">2025 | Nagpur</p>
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="timeline-header"><h3>Backend Developer</h3><span class="timeline-company">Elixir Strategic Management Pvt. Ltd</span></div>
+              <p class="timeline-meta">📍 2025 · Nagpur</p>
               <p class="timeline-desc">Delivered 12+ REST APIs with Spring Boot + MySQL and JWT + RBAC security, improving latency by ~28% and reducing bugs by 32%.</p>
-              <div class="timeline-tags">
-                <span class="tag">Spring Boot</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">JWT</span>
-                <span class="tag">REST APIs</span>
-              </div>
-            </div>
+              <div class="timeline-tags"><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">REST APIs</span></div>
+            </div><div class="timeline-node"></div>
           </div>
           <div class="timeline-modern-item right reveal">
+            <div class="timeline-node"></div>
             <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <div class="timeline-header">
-                <h3>Android Development Intern</h3>
-                <span class="timeline-company">CodSoft</span>
-              </div>
-              <p class="timeline-meta">2025 | Remote</p>
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="timeline-header"><h3>Android Development Intern</h3><span class="timeline-company">CodSoft</span></div>
+              <p class="timeline-meta">📍 2025 · Remote</p>
               <p class="timeline-desc">Built 5 Android apps with Kotlin/Java + API integrations, improving UI engagement & crash stability by ~17%.</p>
-              <div class="timeline-tags">
-                <span class="tag">Kotlin</span>
-                <span class="tag">Java</span>
-                <span class="tag">Android</span>
-                <span class="tag">APIs</span>
-              </div>
+              <div class="timeline-tags"><span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">Android</span><span class="tag">APIs</span></div>
             </div>
           </div>
           <div class="timeline-modern-item left reveal">
             <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <div class="timeline-header">
-                <h3>Data Analyst Intern</h3>
-                <span class="timeline-company">Forge</span>
-              </div>
-              <p class="timeline-meta">2025 | Remote</p>
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="timeline-header"><h3>Data Analyst Intern</h3><span class="timeline-company">Forge</span></div>
+              <p class="timeline-meta">📍 2025 · Remote</p>
               <p class="timeline-desc">Built 4 Power BI dashboards and automated refresh pipelines, saving ~5 hrs/week and increasing forecast accuracy.</p>
-              <div class="timeline-tags">
-                <span class="tag">Power BI</span>
-                <span class="tag">Data Analysis</span>
-                <span class="tag">Automation</span>
-              </div>
-            </div>
+              <div class="timeline-tags"><span class="tag">Power BI</span><span class="tag">Data Analysis</span><span class="tag">Automation</span></div>
+            </div><div class="timeline-node"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            WEB ARCHIVES
-          </span>
+          <span class="section-kicker">// 03 — WEB ARCHIVES</span>
           <h2 class="section-title">Projects</h2>
         </header>
         <div class="projects-grid">
           <div class="project-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <h3 class="project-title" ><a href="https://github.com/PiyushLadukar/jit-jwt-backend">Bank Management System</a></h3>
-              <p class="project-tech">Spring Boot • JWT • RBAC • MySQL</p>
-              <p class="project-desc">Designed a secure multi-role banking backend; encrypted credentials; reduced unauthorized access risk by 100%.</p>
+            <div class="glass-panel project-inner">
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="project-accent-bar" style="--bar-color:#dc2626"></div>
+              <div class="project-icon">🏦</div>
+              <h3 class="project-title"><a href="https://github.com/PiyushLadukar/jit-jwt-backend" target="_blank">Bank Management System</a></h3>
+              <p class="project-tech">Spring Boot · JWT · RBAC · MySQL</p>
+              <p class="project-desc">Secure multi-role banking backend with encrypted credentials, reducing unauthorized access risk by 100%.</p>
+              <a href="https://github.com/PiyushLadukar/jit-jwt-backend" target="_blank" class="project-link">View Code →</a>
             </div>
           </div>
           <div class="project-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-                <h3 class="project-title"><a href="https://github.com/PiyushLadukar/QrScanByPi">Qr Scanner App</a></h3>
-              <p class="project-tech">Python • opencv • matplotlib •Pyzbar •Pillow </p>
-              <p class="project-desc">A modern QR Scanner desktop app built with Python and PyQt6, supporting camera scanning, image upload, and drag-and-drop QR detection, with instant in-app results and quick actions like open link and copy.</p>
+            <div class="glass-panel project-inner">
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="project-accent-bar" style="--bar-color:#3b82f6"></div>
+              <div class="project-icon">📷</div>
+              <h3 class="project-title"><a href="https://github.com/PiyushLadukar/QrScanByPi" target="_blank">QR Scanner App</a></h3>
+              <p class="project-tech">Python · OpenCV · PyQt6 · Pyzbar</p>
+              <p class="project-desc">Modern desktop QR Scanner with camera scanning, image upload, drag-and-drop detection, and quick actions.</p>
+              <a href="https://github.com/PiyushLadukar/QrScanByPi" target="_blank" class="project-link">View Code →</a>
             </div>
           </div>
           <div class="project-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
+            <div class="glass-panel project-inner">
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="project-accent-bar" style="--bar-color:#10b981"></div>
+              <div class="project-icon">🌤️</div>
               <h3 class="project-title">Weather Forecast App</h3>
-              <p class="project-tech">Java • REST API • Material UI</p>
-              <p class="project-desc">7-screen weather prediction app with real-time temperature & AQI using API integration.</p>
+              <p class="project-tech">Java · REST API · Material UI</p>
+              <p class="project-desc">7-screen weather prediction app with real-time temperature & AQI using live API integration.</p>
+              <span class="project-link muted">Android App</span>
             </div>
           </div>
           <div class="project-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
+            <div class="glass-panel project-inner">
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="project-accent-bar" style="--bar-color:#f59e0b"></div>
+              <div class="project-icon">🚀</div>
               <h3 class="project-title">Other Projects</h3>
               <p class="project-tech">Various Technologies</p>
-              <p class="project-desc">ChemFlow • Mini Radar System • WhatsApp E-Commerce • Gamified Finance Website</p>
+              <p class="project-desc">ChemFlow · Mini Radar System · WhatsApp E-Commerce · Gamified Finance Website</p>
+              <a href="https://github.com/PiyushLadukar" target="_blank" class="project-link">GitHub →</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            SPIDER ARSENAL
-          </span>
+          <span class="section-kicker">// 04 — SPIDER ARSENAL</span>
           <h2 class="section-title">Skills</h2>
         </header>
         <div class="skills-grid">
-          <div class="skill-panel reveal">
-            <div class="glass-panel floating">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <h3>Technical Skills</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Spring Boot</span>
-                <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">JWT</span>
-                <span class="skill-tag">JPA/Hibernate</span>
-                <span class="skill-tag">DSA</span>
-                <span class="skill-tag">OOP</span>
-                <span class="skill-tag">SDLC</span>
-              </div>
-            </div>
-          </div>
-          <div class="skill-panel reveal">
-            <div class="glass-panel floating">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <h3>Tools & Platforms</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Android Studio</span>
-                <span class="skill-tag">Kotlin</span>
-                <span class="skill-tag">Retrofit</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">GitHub</span>
-                <span class="skill-tag">IntelliJ</span>
-                <span class="skill-tag">VS Code</span>
-                <span class="skill-tag">MySQL Workbench</span>
-              </div>
-            </div>
-          </div>
-          <div class="skill-panel reveal">
-            <div class="glass-panel floating">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <h3>Web & IoT</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">CSS</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Arduino</span>
-                <span class="skill-tag">RFID</span>
-                <span class="skill-tag">Sensors</span>
-                <span class="skill-tag">Microcontrollers</span>
-              </div>
-            </div>
-          </div>
+          <div class="skill-panel reveal"><div class="glass-panel floating"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><h3>⚙️ Technical Skills</h3><div class="skill-tags"><span class="skill-tag">Java</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">REST APIs</span><span class="skill-tag">SQL</span><span class="skill-tag">JWT</span><span class="skill-tag">JPA/Hibernate</span><span class="skill-tag">DSA</span><span class="skill-tag">OOP</span><span class="skill-tag">SDLC</span></div></div></div>
+          <div class="skill-panel reveal"><div class="glass-panel floating" style="animation-delay:.4s"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><h3>🛠️ Tools & Platforms</h3><div class="skill-tags"><span class="skill-tag">Android Studio</span><span class="skill-tag">Kotlin</span><span class="skill-tag">Retrofit</span><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">IntelliJ</span><span class="skill-tag">VS Code</span><span class="skill-tag">MySQL Workbench</span></div></div></div>
+          <div class="skill-panel reveal"><div class="glass-panel floating" style="animation-delay:.8s"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><h3>🌐 Web & IoT</h3><div class="skill-tags"><span class="skill-tag">React</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Arduino</span><span class="skill-tag">RFID</span><span class="skill-tag">Sensors</span><span class="skill-tag">Microcontrollers</span></div></div></div>
         </div>
       </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- EDUCATION & AWARDS -->
     <section class="section" id="education">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            TRAINING GROUNDS
-          </span>
-          <h2 class="section-title">Education</h2>
+          <span class="section-kicker">// 05 — TRAINING GROUNDS & VICTORIES</span>
+          <h2 class="section-title">Education & Awards</h2>
         </header>
-        <div class="education-card reveal">
-          <div class="glass-panel">
-            <div class="hud-corner hud-tl"></div>
-            <div class="hud-corner hud-tr"></div>
-            <div class="hud-corner hud-bl"></div>
-            <div class="hud-corner hud-br"></div>
-            <h3>B.Tech in Computer Science</h3>
-            <p class="edu-school">Jhulelal Institute of Technology</p>
-            <p class="edu-meta">2023 – Present | Nagpur</p>
-            <p class="edu-cgpa">CGPA: <strong>8.4</strong></p>
+        <div class="edu-award-grid">
+          <div class="education-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="edu-icon">🎓</div>
+              <h3>B.Tech in Computer Science</h3>
+              <p class="edu-school">Jhulelal Institute of Technology</p>
+              <p class="edu-meta">2023 – Present · Nagpur</p>
+              <p class="edu-cgpa">CGPA: <strong>8.4</strong></p>
+            </div>
+          </div>
+          <div class="award-card reveal">
+            <div class="glass-panel">
+              <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
+              <div class="award-icon">🥇🥇</div>
+              <h3>2× National Gold Medals</h3>
+              <p class="award-desc">National Karate Championship (2019), representing Maharashtra among 250+ state-level athletes.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Awards Section -->
-    <section class="section" id="awards">
-      <div class="container">
-        <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            BATTLE VICTORIES
-          </span>
-          <h2 class="section-title">Awards</h2>
-        </header>
-        <div class="award-card reveal">
-          <div class="glass-panel">
-            <div class="hud-corner hud-tl"></div>
-            <div class="hud-corner hud-tr"></div>
-            <div class="hud-corner hud-bl"></div>
-            <div class="hud-corner hud-br"></div>
-            <div class="award-icon">🥇🥇</div>
-            <h3>2× National Gold Medals</h3>
-            <p class="award-desc">National Karate Championship (2019), representing Maharashtra among 250+ state-level athletes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-kicker">
-            <svg class="spider-icon" viewBox="0 0 24 24" width="14" height="14">
-              <path fill="currentColor" d="M12 2L10 8L4 8L9 12L7 18L12 14L17 18L15 12L20 8L14 8L12 2Z"/>
-            </svg>
-            SPIDER SIGNAL
-          </span>
+          <span class="section-kicker">// 06 — SPIDER SIGNAL</span>
           <h2 class="section-title">Get In Touch</h2>
         </header>
         <div class="contact-grid">
-          <a href="mailto:work.piyushladukar@gmail.com" class="contact-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-              <span>work.piyushladukar@gmail.com</span>
-            </div>
-          </a>
-          <a href="tel:+918668720984" class="contact-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              <span>+91-8668720984</span>
-            </div>
-          </a>
-          <a href="https://linkedin.com/in/piyush-ladukar" target="_blank" class="contact-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-              <span>LinkedIn Profile</span>
-            </div>
-          </a>
-          <a href="https://github.com/PiyushLadukar" target="_blank" class="contact-card reveal">
-            <div class="glass-panel">
-              <div class="hud-corner hud-tl"></div>
-              <div class="hud-corner hud-tr"></div>
-              <div class="hud-corner hud-bl"></div>
-              <div class="hud-corner hud-br"></div>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              <span>GitHub Profile</span>
-            </div>
-          </a>
+          <a href="mailto:work.piyushladukar@gmail.com" class="contact-card reveal"><div class="glass-panel"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>work.piyushladukar@gmail.com</span></div></a>
+          <a href="tel:+918668720984" class="contact-card reveal"><div class="glass-panel"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+91-8668720984</span></div></a>
+          <a href="https://linkedin.com/in/piyush-ladukar" target="_blank" class="contact-card reveal"><div class="glass-panel"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg><span>LinkedIn Profile</span></div></a>
+          <a href="https://github.com/PiyushLadukar" target="_blank" class="contact-card reveal"><div class="glass-panel"><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GitHub Profile</span></div></a>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>Built with 🕷️ © 2026 <strong>Piyush Ladukar. </strong> </p>
-      </div>
-    </footer>
+    <footer class="footer"><div class="container"><p>Built with 🕷️ © 2026 <strong>Piyush Ladukar</strong></p></div></footer>
   </main>
 
-  
   <script src="script.js"></script>
-
 </body>
 </html>
