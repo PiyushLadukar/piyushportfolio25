@@ -22,7 +22,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {PROFILE.name}. Crafted with React, Framer Motion, GSAP &amp; Lenis.
+        © {new Date().getFullYear()} {PROFILE.name}. Sleep? I’m in my build era.
       </div>
     </footer>
   );

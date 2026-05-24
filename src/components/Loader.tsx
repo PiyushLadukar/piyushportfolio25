@@ -44,7 +44,7 @@ export function Loader() {
               className="h-[3px] rounded-full bg-gradient-aurora shadow-glow"
             />
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Booting cinematic mode
+              Loading Portfolio...
             </p>
           </div>
         </motion.div>
