@@ -126,7 +126,7 @@ export function Contact() {
               <p className="text-xs text-muted-foreground">
                 Delivered straight to {PROFILE.email}
               </p>
-              <MagneticButton variant="primary">
+              <MagneticButton type="submit" variant="primary">
                 {status === "sending" ? "Sending…" : status === "sent" ? <><FiCheck /> Sent</> : <><FiSend /> Send Message</>}
               </MagneticButton>
             </div>

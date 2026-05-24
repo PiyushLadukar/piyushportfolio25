@@ -9,6 +9,7 @@ type Props = {
   className?: string;
   target?: string;
   download?: boolean | string;
+  type?: "button" | "submit" | "reset";
 };
 
 export function MagneticButton({
@@ -19,6 +20,7 @@ export function MagneticButton({
   className = "",
   target,
   download,
+  type = "button",
 }: Props) {
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const x = useMotionValue(0);
@@ -72,6 +74,7 @@ export function MagneticButton({
   return (
     <motion.button
       ref={ref as any}
+      type={type}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       onClick={onClick}
