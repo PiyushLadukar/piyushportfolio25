@@ -5,6 +5,7 @@ import anomax from "@/assets/projects/anomax.jpg";
 import qrscanner from "@/assets/projects/qrscanner.jpg";
 import secondbrain from "@/assets/projects/secondbrain.jpg";
 import blocksbypi from "@/assets/projects/blocksbypi.jpg";
+import orbit from "@/assets/projects/orbit.png";
 
 export const PROFILE = {
   name: "Piyush Rajendra Ladukar",
@@ -95,6 +96,17 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/PiyushLadukar/LokDrishti",
     highlight: true,
   },
+  {
+    id: "orbit",
+    name: "Orbit",
+    tagline: "Your AI job application copilot",
+    description:
+      "End-to-end AI workflow that automates job discovery, profile matching, resume tailoring, cover letter generation, and application drafting.",
+    long: "Built with n8n, Python, and LLMs, Orbit orchestrates an intelligent job search pipeline by collecting opportunities, removing duplicate listings, ranking jobs based on profile relevance, generating ATS-optimized resumes, creating personalized cover letters, and drafting ready-to-send application emails. Designed to reduce repetitive tasks while keeping the user in control of every application.",
+    tech: ["n8n", "Python", "LLMs", "OpenAI", "LinkedIn", "Gmail API", "Google Sheets"],
+    image: orbit,
+    github: "https://github.com/PiyushLadukar/Orbit",
+  },  
   {
     id: "aatankdrishti",
     name: "AatankDrishti",
@@ -196,7 +208,7 @@ export const VOLUNTEER: Volunteer[] = [
   {
     position: "Senior Executive Member",
     organization: "Encypherist",
-    duration: "Aug 2025 — Present · 10 mos",
+    duration: "Aug 2025 — June 2026 · 11 mos",
     image: encypheristImg,
   },
   {
@@ -209,9 +221,36 @@ export const VOLUNTEER: Volunteer[] = [
 
 export const EXPERIENCE = [
   {
+    role: "Full Stack Developer Intern",
+    company: "Smart Start Pvt. Ltd.",
+    period: "Jul 2026 — Present",
+    bullets: [
+      "Developed and maintained 10+ full-stack features using Python, FastAPI, React.js, and Next.js for scalable business applications",
+      "Built and integrated 15+ REST API endpoints enabling seamless communication between frontend interfaces and backend services",
+      "Designed and optimized 8+ database models while implementing JWT-based authentication and role-based access workflows to improve application security",
+      "Collaborated with a cross-functional team using Git to develop, test, review, and deploy 20+ production-ready code changes across multiple development sprints",
+    ],
+    tech: [
+      "Python",
+      "FastAPI",
+      "Flask",
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "JavaScript",
+      "TypeScript",
+      "PostgreSQL",
+      "MongoDB",
+      "REST APIs",
+      "Git",
+      "Docker",
+    ],
+  },
+  {
     role: "Backend Developer Intern",
     company: "ESM Pvt. Ltd",
-    period: "Aug 2025 — Oct 2025",
+    period: "Aug 2025 — Nov 2025",
     bullets: [
       "Built secure REST APIs powering enterprise backend systems",
       "Implemented JWT authentication and RBAC authorization",
