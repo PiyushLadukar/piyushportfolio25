@@ -6,6 +6,7 @@ import qrscanner from "@/assets/projects/qrscanner.jpg";
 import secondbrain from "@/assets/projects/secondbrain.jpg";
 import blocksbypi from "@/assets/projects/blocksbypi.jpg";
 import orbit from "@/assets/projects/orbit.png";
+import nocap from "@/assets/projects/nocap.png";
 
 export const PROFILE = {
   name: "Piyush Rajendra Ladukar",
@@ -106,7 +107,18 @@ export const PROJECTS: Project[] = [
     tech: ["n8n", "Python", "LLMs", "OpenAI", "LinkedIn", "Gmail API", "Google Sheets"],
     image: orbit,
     github: "https://github.com/PiyushLadukar/Orbit",
-  },  
+  },
+  {
+    id: "nocap",
+    name: "NO CAP",
+    tagline: "Read better — a newspaper for the web",
+    description:
+      "Reader-supported, ad-free news reader that presents live headlines as a classic multi-page daily edition — no clickbait, no distractions.",
+    long: "A digital newspaper with a print-inspired editorial design. Live news across Politics, Business, Technology, Science, Sports, Culture, World and Climate is laid out as a 16-page daily edition with section navigation, bylines, page continuations, an 'In Brief' digest, and reading-time estimates.",
+    tech: ["Next.js", "React", "TypeScript", "Guardian API", "Vercel"],
+    image: nocap,
+    live: "https://nocap-phi.vercel.app/",
+  },
   {
     id: "aatankdrishti",
     name: "AatankDrishti",
