@@ -1,6 +1,24 @@
 import { motion } from "framer-motion";
-import { EXPERIENCE } from "@/constants/data";
-import { SectionHeading } from "./About";
+import { EXPERIENCE, type ExperienceEntry } from "@/constants/data";
+import { Counter, SectionHeading } from "./About";
+
+function ExperienceMetrics({ metrics }: { metrics: NonNullable<ExperienceEntry["metrics"]> }) {
+  return (
+    <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+      {metrics.map((m) => (
+        <div
+          key={m.label}
+          className="rounded-xl border border-border/70 bg-background/60 p-3 transition-colors duration-300 hover:border-primary/40"
+        >
+          <div className="w-fit font-display text-2xl font-bold text-gradient">
+            <Counter value={m.value} suffix={m.suffix} />
+          </div>
+          <div className="mt-0.5 text-xs text-muted-foreground">{m.label}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function Experience() {
   return (
@@ -27,6 +45,8 @@ export function Experience() {
                   </h3>
                   <span className="text-xs uppercase tracking-wider text-muted-foreground">{e.period}</span>
                 </div>
+                {e.summary && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.summary}</p>}
+                {e.metrics && <ExperienceMetrics metrics={e.metrics} />}
                 <ul className="mt-4 space-y-2">
                   {e.bullets.map((b) => (
                     <li key={b} className="flex gap-3 text-sm text-foreground/85">

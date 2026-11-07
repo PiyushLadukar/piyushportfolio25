@@ -196,6 +196,8 @@ import barkImg from "@/assets/volunteer/bark.png";
 import encypheristImg from "@/assets/volunteer/encypherist.png";
 import rotaractImg from "@/assets/volunteer/rotaract.png";
 import photographyImg from "@/assets/volunteer/piyush-photography.png";
+import hackWithIndiaImg from "@/assets/volunteer/hackwithindia.png";
+import encypheristSecretaryImg from "@/assets/volunteer/encypherist-secretary.png";
 
 export type Volunteer = {
   position: string;
@@ -205,6 +207,18 @@ export type Volunteer = {
 };
 
 export const VOLUNTEER: Volunteer[] = [
+  {
+    position: "President & Chapter Lead",
+    organization: "Hack With India JIT",
+    duration: "Present",
+    image: hackWithIndiaImg,
+  },
+  {
+    position: "Secretary",
+    organization: "Encypherist",
+    duration: "2026 — 2027",
+    image: encypheristSecretaryImg,
+  },
   {
     position: "Social Media Head",
     organization: "Rotaract Club of JIT",
@@ -231,7 +245,53 @@ export const VOLUNTEER: Volunteer[] = [
   },
 ];
 
-export const EXPERIENCE = [
+export type ExperienceEntry = {
+  role: string;
+  company: string;
+  period: string;
+  summary?: string;
+  metrics?: { label: string; value: number; suffix: string }[];
+  bullets: string[];
+  tech: string[];
+};
+
+export const EXPERIENCE: ExperienceEntry[] = [
+  {
+    role: "Forward Deployed Engineer (FDE) Intern",
+    company: "Ivyhuts",
+    period: "Jul 2026 — Present",
+    summary:
+      "Worked on full-stack student housing and CRM applications, building AI-powered solutions, backend APIs, and scalable application infrastructure.",
+    metrics: [
+      { label: "Full-stack features", value: 15, suffix: "+" },
+      { label: "AI tools", value: 10, suffix: "" },
+      { label: "REST APIs integrated", value: 13, suffix: "+" },
+      { label: "Production-ready code changes", value: 110, suffix: "+" },
+    ],
+    bullets: [
+      "Developed 15+ full-stack features using React, Next.js, TypeScript, Node.js, and MongoDB",
+      "Built an AI-powered CRM assistant with 10 read-only tools using Groq LLMs and Server-Sent Events, featuring role-based access, token budgets, and audit logging",
+      "Integrated 13+ REST APIs and consolidated 51 API routes into 9 Vercel Functions to resolve deployment limitations",
+      "Optimized 8+ database models and implemented secure sessions, role-based access control, and MongoDB-backed shared storage",
+      "Delivered 110+ production-ready code changes across 3 repositories",
+    ],
+    tech: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Mongoose",
+      "Groq API",
+      "OpenAI SDK",
+      "Vercel",
+      "Tailwind CSS",
+      "Jest",
+      "Vitest",
+      "Git",
+      "GitHub",
+    ],
+  },
   {
     role: "Full Stack Developer Intern",
     company: "Smart Start Pvt. Ltd.",
