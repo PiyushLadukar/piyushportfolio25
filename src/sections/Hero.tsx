@@ -1,12 +1,16 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { FiGithub, FiLinkedin, FiMail, FiArrowDown, FiDownload, FiAward, FiCode, FiCpu, FiZap } from "react-icons/fi";
 import { PROFILE, ABOUT } from "@/constants/data";
 import { MagneticButton } from "@/components/MagneticButton";
 
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  // The typewriter re-renders text on a timer; only run it while the hero is on screen
+  const inView = useInView(ref);
   return (
-    <section id="home" className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-6 pt-28">
+    <section ref={ref} id="home" className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-6 pt-28">
       {/* Hero-specific cinematic background */}
       <HeroBackdrop />
 
@@ -57,13 +61,17 @@ export function Hero() {
             className="mt-3 flex items-center gap-2 font-mono text-sm sm:text-base"
           >
             <span className="text-muted-foreground">{">"}</span>
-            <TypeAnimation
-              sequence={PROFILE.roles as (string | number)[]}
-              wrapper="span"
-              speed={45}
-              className="text-gradient font-medium"
-              repeat={Infinity}
-            />
+            {inView ? (
+              <TypeAnimation
+                sequence={PROFILE.roles as (string | number)[]}
+                wrapper="span"
+                speed={45}
+                className="text-gradient font-medium"
+                repeat={Infinity}
+              />
+            ) : (
+              <span className="text-gradient font-medium">{PROFILE.roles[0]}</span>
+            )}
             <span className="ml-1 inline-block h-4 w-[2px] animate-pulse bg-primary" />
           </motion.div>
 
@@ -123,11 +131,9 @@ export function Hero() {
           <div className="absolute -inset-6 rounded-full bg-[radial-gradient(circle,_oklch(0.62_0.24_265/0.35),_transparent_60%)] blur-2xl animate-pulse-glow" />
           <div className="absolute inset-0 animate-spin-slow rounded-full bg-[conic-gradient(from_0deg,_oklch(0.78_0.16_210),_oklch(0.62_0.24_260),_oklch(0.62_0.24_295),_oklch(0.78_0.16_210))] opacity-80" />
           <div className="absolute inset-[6px] rounded-full bg-background" />
-          <motion.div
+          <div
             aria-hidden
-            animate={{ rotate: -360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-[-14px] rounded-full border border-dashed border-primary/30"
+            className="absolute inset-[-14px] animate-spin-reverse rounded-full border border-dashed border-primary/30"
           />
           <div className="absolute inset-[10px] overflow-hidden rounded-full glass-strong animate-float shadow-glow">
             <img
@@ -151,9 +157,9 @@ export function Hero() {
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs text-muted-foreground md:flex"
       >
         <span>Scroll</span>
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
+        <div className="animate-nudge">
           <FiArrowDown />
-        </motion.div>
+        </div>
       </motion.a>
     </section>
   );
@@ -176,21 +182,11 @@ function HeroBackdrop() {
         }}
       />
       {/* aurora orbs */}
-      <motion.div
-        animate={{ x: [0, 30, -20, 0], y: [0, -20, 10, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.16_210/0.45),_transparent_65%)] blur-3xl"
-      />
-      <motion.div
-        animate={{ x: [0, -40, 20, 0], y: [0, 30, -10, 0] }}
-        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -right-32 top-32 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,_oklch(0.62_0.24_295/0.40),_transparent_65%)] blur-3xl"
-      />
-      <motion.div
-        animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl
-          bg-[conic-gradient(from_0deg_at_50%_50%,_oklch(0.78_0.16_210/0.25),_oklch(0.62_0.24_295/0.30),_oklch(0.62_0.24_260/0.25),_oklch(0.78_0.16_210/0.25))] opacity-60"
+      <div className="absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.16_210/0.45),_transparent_65%)] animate-drift-b" />
+      <div className="absolute -right-32 top-32 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,_oklch(0.62_0.24_295/0.40),_transparent_65%)] animate-drift-a" />
+      <div
+        className="absolute left-1/2 top-1/2 h-[700px] w-[700px] rounded-full blur-3xl animate-breathe
+          bg-[conic-gradient(from_0deg_at_50%_50%,_oklch(0.78_0.16_210/0.25),_oklch(0.62_0.24_295/0.30),_oklch(0.62_0.24_260/0.25),_oklch(0.78_0.16_210/0.25))]"
       />
       {/* soft vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,_transparent_40%,_oklch(0.99_0.005_250/0.6)_100%)]" />
@@ -236,10 +232,9 @@ function FloatingCard({
       transition={{ delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`pointer-events-none absolute z-0 ${className}`}
     >
-      <motion.div
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
-        className="relative flex items-center gap-3 rounded-2xl glass px-4 py-3 shadow-glow"
+      <div
+        style={{ animationDuration: `${4 + (delay % 1) * 2}s` }}
+        className="relative flex animate-bob items-center gap-3 rounded-2xl glass px-4 py-3 shadow-glow"
       >
         <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tint} to-transparent opacity-60`} />
         <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-background/70 text-primary">
@@ -249,7 +244,7 @@ function FloatingCard({
           <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
           <div className="font-display text-base font-bold">{value}</div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

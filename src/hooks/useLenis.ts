@@ -1,22 +1,11 @@
 import { useEffect } from "react";
-import Lenis from "lenis";
 
+// Native smooth scrolling for in-page anchors. A JS scroll loop (Lenis) forced a
+// style + layout pass on every frame, which made scrolling lag on slower devices.
 export function useLenis() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-    let rafId: number;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
 
-    // intercept hash anchor clicks to use lenis scrollTo
     const onClick = (e: MouseEvent) => {
       const el = (e.target as HTMLElement)?.closest("a[href^='#']") as HTMLAnchorElement | null;
       if (!el) return;
@@ -25,15 +14,11 @@ export function useLenis() {
       const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
-        lenis.scrollTo(target as HTMLElement, { offset: -70 });
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: "smooth" });
       }
     };
     document.addEventListener("click", onClick);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      document.removeEventListener("click", onClick);
-      lenis.destroy();
-    };
+    return () => document.removeEventListener("click", onClick);
   }, []);
 }

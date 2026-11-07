@@ -1,12 +1,12 @@
-import lokdrishti from "@/assets/projects/lokdrishti.png";
-import aatankdrishti from "@/assets/projects/aatankdrishti.png";
-import whyfarmer from "@/assets/projects/whyfarmer.png";
-import anomax from "@/assets/projects/anomax.jpg";
-import qrscanner from "@/assets/projects/qrscanner.jpg";
-import secondbrain from "@/assets/projects/secondbrain.jpg";
-import blocksbypi from "@/assets/projects/blocksbypi.jpg";
-import orbit from "@/assets/projects/orbit.png";
-import nocap from "@/assets/projects/nocap.png";
+import lokdrishti from "@/assets/projects/lokdrishti.webp";
+import aatankdrishti from "@/assets/projects/aatankdrishti.webp";
+import whyfarmer from "@/assets/projects/whyfarmer.webp";
+import anomax from "@/assets/projects/anomax.webp";
+import qrscanner from "@/assets/projects/qrscanner.webp";
+import secondbrain from "@/assets/projects/secondbrain.webp";
+import blocksbypi from "@/assets/projects/blocksbypi.webp";
+import orbit from "@/assets/projects/orbit.webp";
+import nocap from "@/assets/projects/nocap.webp";
 
 export const PROFILE = {
   name: "Piyush Rajendra Ladukar",
@@ -192,12 +192,12 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-import barkImg from "@/assets/volunteer/bark.png";
-import encypheristImg from "@/assets/volunteer/encypherist.png";
-import rotaractImg from "@/assets/volunteer/rotaract.png";
-import photographyImg from "@/assets/volunteer/piyush-photography.png";
-import hackWithIndiaImg from "@/assets/volunteer/hackwithindia.png";
-import encypheristSecretaryImg from "@/assets/volunteer/encypherist-secretary.png";
+import barkImg from "@/assets/volunteer/bark.webp";
+import encypheristImg from "@/assets/volunteer/encypherist.webp";
+import rotaractImg from "@/assets/volunteer/rotaract.webp";
+import photographyImg from "@/assets/volunteer/piyush-photography.webp";
+import hackWithIndiaImg from "@/assets/volunteer/hackwithindia.webp";
+import encypheristSecretaryImg from "@/assets/volunteer/encypherist-secretary.webp";
 
 export type Volunteer = {
   position: string;
